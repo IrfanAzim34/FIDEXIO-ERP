@@ -13,11 +13,10 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json"
         },
         features = "src/test/resources/features",
-        glue = "src/test/java/com/fidexio/step_defs",
-        dryRun = true,
+        glue = "com/fidexio/step_defs",
+        dryRun = false,
         publish = true,
-        tags = ""
+        tags = "@wip"
 )
 public class CukesRunner {
-
 }
