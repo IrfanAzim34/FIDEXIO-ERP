@@ -51,15 +51,11 @@ public class LoginFunctionality_StepDefs {
     @Then("user should see {string} message")
     public void userShouldSeeMessage(String validationMsg) {
         if (currentUsername.isEmpty()){
-            if (loginPage.loginBox.getAttribute("required") != null){
-                Assert.assertEquals(loginPage.loginBox.getAttribute("validationMessage"), validationMsg);
-            }
+            Assert.assertNotNull(loginPage.loginBox.getAttribute("required"));
+            Assert.assertEquals(loginPage.loginBox.getAttribute("validationMessage"), validationMsg);
         } else if (currentPassword.isEmpty()) {
-            if (loginPage.passwordBox.getAttribute("required") != null){
-                Assert.assertEquals(loginPage.passwordBox.getAttribute("validationMessage"),validationMsg);
-            }
-        }else {
-            Assert.fail();
+            Assert.assertNotNull(loginPage.passwordBox.getAttribute("required"));
+            Assert.assertEquals(loginPage.passwordBox.getAttribute("validationMessage"),validationMsg);
         }
     }
 }
