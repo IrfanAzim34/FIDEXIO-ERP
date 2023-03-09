@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 public class LoginFunctionality_StepDefs {
 
@@ -43,23 +44,32 @@ public class LoginFunctionality_StepDefs {
         Assert.assertTrue(homePage.inbox.isDisplayed());
     }
 
-    @Then("user should see wrong credentials message")
-    public void userShouldSeeWrongCredentialsMessage() {
-        Assert.assertTrue(homePage.wrongCredentialsMsg.isDisplayed());
+    @Then("user should see {string} warning message")
+    public void userShouldSeeWarningMessage(String wrongMsg) {
+        Assert.assertTrue(loginPage.wrongCredentialsMsg.isDisplayed());
+        Assert.assertEquals(wrongMsg,loginPage.wrongCredentialsMsg.getText());
     }
 
-    @Then("user should see {string} message")
-    public void userShouldSeeMessage(String validationMsg) {
+    @Then("user should see {string} validation message")
+    public void userShouldSeeValidationMessage(String validationMsg) {
         if (currentUsername.isEmpty()){
-            if (loginPage.loginBox.getAttribute("required") != null){
-                Assert.assertEquals(loginPage.loginBox.getAttribute("validationMessage"), validationMsg);
-            }
+            Assert.assertNotNull(loginPage.loginBox.getAttribute("required"));
+            Assert.assertEquals(loginPage.loginBox.getAttribute("validationMessage"), validationMsg);
         } else if (currentPassword.isEmpty()) {
-            if (loginPage.passwordBox.getAttribute("required") != null){
-                Assert.assertEquals(loginPage.passwordBox.getAttribute("validationMessage"),validationMsg);
-            }
-        }else {
-            Assert.fail();
+            Assert.assertNotNull(loginPage.passwordBox.getAttribute("required"));
+            Assert.assertEquals(loginPage.passwordBox.getAttribute("validationMessage"),validationMsg);
         }
     }
+
+    @Then("user should see bullet signs")
+    public void userShouldSeeBulletSigns() {
+        Assert.assertEquals("password", loginPage.passwordBox.getAttribute("type"));
+    }
+
+    @And("user click enter key of the keyboard")
+    public void userClickEnterKeyOfTheKeyboard() {
+        loginPage.passwordBox.sendKeys(Keys.ENTER);
+    }
+
+
 }

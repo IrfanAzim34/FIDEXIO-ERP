@@ -14,7 +14,4 @@ public class HomePage {
     @FindBy(xpath = "//li[.='#Inbox']")
     public WebElement inbox;
 
-    @FindBy(xpath = "//p[@class='alert alert-danger']")
-    public WebElement wrongCredentialsMsg;
-
 }
