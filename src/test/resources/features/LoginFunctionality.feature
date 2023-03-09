@@ -32,7 +32,7 @@ Feature: LoginFunctionality
     And user click login button
     Then user should see "Please fill out this field." message
     Examples:
-      | username                | password   |
-      |                         |            |
-      | salesmanager39@info.com |            |
-      |                         | posmanager |
+      | username                | password    |
+      |                         |             |
+      | salesmanager39@info.com |             |
+      |                         | posmanager  |
