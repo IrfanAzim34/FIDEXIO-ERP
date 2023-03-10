@@ -36,7 +36,7 @@ Feature: LoginFunctionality
       | username                | password   |
       |                         |            |
       | salesmanager39@info.com |            |
-      |                   ssdf      | posmanager |
+      |                         | posmanager |
 
   @FIDEX10-368
   Scenario: User should see the bullet signs style password
