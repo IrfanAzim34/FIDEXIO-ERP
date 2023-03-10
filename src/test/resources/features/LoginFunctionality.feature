@@ -1,10 +1,10 @@
-
+@smoke
 Feature: LoginFunctionality
 
   Background: User on login page
     Given user on the login page
 
-  @FIDEX10-365 @smoke
+  @FIDEX10-365
   Scenario Outline: User can login with valid credentials
     When user enter username "<username>" in username box
     And user enter password "<password>" in password box
