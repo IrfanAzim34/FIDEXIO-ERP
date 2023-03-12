@@ -1,4 +1,4 @@
-@smoke
+@FIDEX10-370 @smoke
 Feature: LoginFunctionality
 
   Background: User on login page
